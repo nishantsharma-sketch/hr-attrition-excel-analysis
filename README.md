@@ -1,12 +1,19 @@
 # Employee Attrition Analysis
 
-An interactive HR analytics dashboard built in Excel, analyzing employee attrition patterns for a workforce of 1,470 employees using Power Query, Power Pivot, and DAX.
+A rapid, end-to-end HR analytics dashboard built natively in Excel — from raw CSV to a fully interactive, cross-filtered two-page BI report — using Power Query, Power Pivot, and DAX. Built as a focused, agile analysis: a lean data model and a tight set of measures, iterated quickly into a working dashboard rather than over-engineered from the start.
 
 ## Overview
-This project explores why employees leave the company and which factors are most associated with attrition — department, job role, income level, overtime, tenure, and more — using a real IBM HR dataset. The end deliverable is a dynamic, slicer-driven dashboard built natively in Excel.
+This project investigates why employees leave the company and which factors are most associated with attrition — department, job role, income level, overtime, tenure, age, marital status, and work-life balance — using a real IBM HR dataset. The result is a two-page, slicer-driven dashboard: one page for the headline picture, one for digging into drivers.
 
 ## Dataset
 IBM HR Analytics Employee Attrition dataset (Kaggle) — 1,470 employees, 35 original attributes covering demographics, compensation, job role, satisfaction scores, and tenure.
+
+## Approach
+Built in a single, focused working session, prioritizing speed without cutting corners on the data model:
+1. Clean and shape the data (Power Query)
+2. Build a lean Data Model with just the calculated fields needed (Power Pivot)
+3. Layer in measures (DAX)
+4. Assemble two dashboard pages, cross-filtered by shared slicers
 
 ## Process
 
@@ -19,24 +26,26 @@ Loaded the cleaned table into the Data Model and added calculated columns to sup
 **Measures (DAX)**
 Built a set of core measures on top of the model: Total Employees, Attrition Count, Attrition Rate, Overtime Attrition Rate, Low Income Attrition Rate, Average Monthly Income, Average Monthly Income (Leavers), Average Years at Company, and Average Years Since Promotion (Leavers).
 
-## Dashboard
-The first dashboard page, "Employee Attrition Overview," brings together four KPI cards (Attrition Rate, Total Employees, Average Monthly Income, Average Years at Company), slicers for Department, OverTime, Age Band, Business Travel, and Job Satisfaction, and two charts breaking down attrition rate by Department and by Job Role.
-
-A second page, "Employee Attrition — Key Drivers," is in progress and will add further breakdowns by overtime status, salary band, age group, promotion gap, marital status, and work-life balance rating.
-
 ## Key Insights
-The overall attrition rate across the workforce is 16.12%. Sales has the highest attrition of any department at 20.63%, followed by HR at 19.05%, while Research & Development is lowest at 13.84%. By job role, Sales Representative stands out sharply at 39.76% attrition — more than double any other role — followed by Laboratory Technician (23.94%) and HR (23.08%), while Research Director (2.50%) and Manager (4.90%) are the most stable roles.
+- Overall attrition rate across the workforce: **16%**
+- **By department:** Sales highest (21%), HR (19%), R&D lowest (14%)
+- **By job role:** Sales Representative stands out sharply at **40%** attrition — more than double any other role — followed by Laboratory Technician (24%) and HR (23%); Research Director (3%) and Manager (5%) are the most stable
+- **Overtime is the single biggest driver:** employees working overtime attrit at **31%** vs. just **10%** for those who don't
+- **Under-30 employees** attrit at **28%**, roughly double every older age band
+- **Single employees** attrit at **26%** vs. 12% for married employees
+- **Low-income employees** attrit at **25%** vs. 9% for high earners
+- Employees with the **lowest work-life balance rating (1)** attrit at **31%**, nearly double the rate at rating 4 (18%)
 
-## Recommendation
-A full business recommendation is being finalized alongside the second dashboard page — see `recommendation.md`.
 
 ## Tools
-Excel, Power Query, Power Pivot, DAX
+Microsoft Excel, Power Query, Power Pivot, DAX
 
 ## Repository Structure
 ```
 ├── Attrition_sheet.xlsx
-├── WA_Fn-UseC_-HR-Employee-Attrition.csv
 ├── README.md
-└── recommendation.md
+├── recommendation.md
+└── deck/
+    ├── page1_overview.png
+    └── page2_key_drivers.png
 ```
